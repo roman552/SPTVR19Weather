@@ -6,6 +6,7 @@
 package sptvr19weather;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -15,6 +16,7 @@ class App {
     public void run() {
         System.out.println("---Project Weather---");
         Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
         int n = 0, min=-50, max=50;
         //Создаем зубчатый массив
         int[][] tInYear = new int[12][];
@@ -45,6 +47,12 @@ class App {
             }
             //Переходим на новую строчку (новый месяц)
             System.out.println("");
+
         }
+            System.out.print("Введите месяц: ");
+            int month = scanner.nextInt();
+            System.out.print("Введите день: ");
+            int day = scanner.nextInt();
+            System.out.println("В этот день была температура: "+tInYear[month-1][day-1]);
     }      
 }
