@@ -17,7 +17,7 @@ class App {
         System.out.println("---Project Weather---");
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
-        int n = 0, min=-50, max=50;
+        int n = 0, min=-50, max=50, minDay = 50, maxDay = -50;
         //Создаем зубчатый массив
         int[][] tInYear = new int[12][];
         for (int i = 0; i < 12; i++) {
@@ -44,6 +44,7 @@ class App {
                 tInYear[i][j] = random.nextInt(max-min+1)+min;
                 //Выводим на консоль значения температур в i-ом месяце
                 System.out.printf("%4d",tInYear[i][j]);
+                
             }
             //Переходим на новую строчку (новый месяц)
             System.out.println("");
@@ -54,5 +55,20 @@ class App {
             System.out.print("Введите день: ");
             int day = scanner.nextInt();
             System.out.println("В этот день была температура: "+tInYear[month-1][day-1]);
+            
+            for (int i = 0; i < tInYear[month-1].length; i++) {
+                
+                if (minDay > tInYear[month-1][i]) {
+                    minDay = tInYear[month-1][i];
+                    
+                }
+                if (maxDay < tInYear[month-1][i]) {
+                    maxDay = tInYear[month-1][i];
+                    
+                }
+            }
+            System.out.println("В этом месяце самая холодная температура была "+minDay+" градусов");
+            System.out.println("В этом месяце самая теплая температура была "+maxDay+" градусов");
+            
     }      
 }
