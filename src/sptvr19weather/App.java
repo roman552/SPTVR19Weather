@@ -17,7 +17,7 @@ class App {
         System.out.println("---Project Weather---");
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
-        int n = 0, min=-50, max=50, minDay = 50, maxDay = -50;
+        int n = 0, min=-50, max=50, minDay = 50, maxDay = -50, sum = 0;
         //Создаем зубчатый массив
         int[][] tInYear = new int[12][];
         for (int i = 0; i < 12; i++) {
@@ -66,9 +66,11 @@ class App {
                     maxDay = tInYear[month-1][i];
                     
                 }
+                sum += tInYear[month-1][i];
             }
             System.out.println("В этом месяце самая холодная температура была "+minDay+" градусов");
             System.out.println("В этом месяце самая теплая температура была "+maxDay+" градусов");
+            System.out.println("Средняя температура за месяц: "+sum/tInYear[month-1].length+" градусов");
             
     }      
 }
